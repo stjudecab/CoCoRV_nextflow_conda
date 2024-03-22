@@ -1,0 +1,33 @@
+name: cocorv-env-GRCh38
+channels:
+  - conda-forge
+  - bioconda
+  - cpg
+dependencies:
+  - cmake
+  - python
+  - scikit-learn
+  - gnomad
+  - hail
+  - bedtools
+  - bcftools=1.14
+  - tabix
+  - jinja2=3.0.1
+  - r-base=4.2.0
+  - readline
+  - r-devtools
+  - r-discretefdr
+  - r-rcpp
+  - r-rcpparmadillo
+  - r-data.table
+  - r-discretemtp
+  - r-nloptr
+  - r-igraph
+  - r-r.utils
+  - r-argparse
+  - r-biocmanager
+  - bioconductor-biocparallel
+  - bioconductor-iranges
+  - bioconductor-genomicranges
+  - bioconductor-seqarray
+  - bioconductor-s4vectors

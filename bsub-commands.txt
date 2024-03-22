@@ -1,0 +1,3 @@
+bsub -P ALS -J run-cocorv-1KG-grch38 -q priority -R "rusage[mem=48000]" -oo cocorv-1KG-GRCh38.out -eo cocorv-1KG-GRCh38.err "sh testGRCh38_1KG_conda.sh"
+
+bsub -P ALS -J run-cocorv-1KG-grch37 -q priority -R "rusage[mem=48000]" -oo cocorv-1KG-GRCh37.out -eo cocorv-1KG-GRCh37.err "sh testGRCh37_1KG_conda.sh"
