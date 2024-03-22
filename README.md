@@ -13,7 +13,7 @@ It will download the micromamba binary in "bin" folder.
 
 Update your home .bashrc using the following command, so that you can run the micromamba command from anywhere.
 ```bash
-./bin/micromamba shell init -s bash -p ~/micromamba  # this writes to your home .bashrc file and create a micromamba folder in your home directory which will contain all you conda environments created by micromamba
+./bin/micromamba shell init -s bash -p ~/micromamba  # this writes to your home .bashrc file and creates a micromamba folder in your home directory which will contain all of your conda environments created by micromamba
 ```
 Restart your terminal and check your micromamba installtion by running micromamba command.
 ```bash
@@ -23,7 +23,7 @@ micromamba
 If you need to install micromamba in macOS or Windows, please check Micromamba installation page: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
 
 #### Create Micromamba environment for gnomAD v3 GRCh38 ####
-Download the git repository "CoCoRV_nextflow_conda". Go to "conda-envs" folder and craete conda environment "cocorv-env-GRCh38":
+Download the git repository "stjudecab/CoCoRV_nextflow_conda". Go to "conda-envs" folder and craete conda environment "cocorv-env-GRCh38":
 ```bash
 git clone https://github.com/stjudecab/CoCoRV_nextflow_conda.git
 cd CoCoRV_nextflow_conda/conda-envs
