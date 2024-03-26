@@ -23,16 +23,32 @@ micromamba
 If you need to install micromamba in macOS or Windows, please check Micromamba installation page: https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
 
 #### Create Micromamba environment for gnomAD v3 GRCh38 ####
-Download the git repository "stjudecab/CoCoRV_nextflow_conda". Go to "conda-envs" folder and craete conda environment "cocorv-env-GRCh38":
+Download the git repository "stjudecab/CoCoRV_nextflow_conda". Go to "conda-envs" folder and create conda environment "cocorv-env-GRCh38":
 ```bash
 git clone https://github.com/stjudecab/CoCoRV_nextflow_conda.git
 cd CoCoRV_nextflow_conda/conda-envs
 micromamba create -f cocorv-env-GRCh38.yaml
 ```
-It will create a conda environment named "cocorv-env-GRCh38" with all necessary python packages, gnomAD packages, and R packages. 
+It will create a conda environment with name "cocorv-env-GRCh38" with all necessary python packages, gnomAD packages, and R packages. 
 Activate the "cocorv-env-GRCh38" environment and install custom CoCoRV R package in there.
 ```bash
 micromamba activate cocorv-env-GRCh38
+cd /home/stithi/CoCoRV_pipeline_bitbucket/cocorv
+Rscript build.R
+micromamba deactivate
+```
+
+#### Create Micromamba environment for gnomAD v2 GRCh37 ####
+Download the git repository "stjudecab/CoCoRV_nextflow_conda". Go to "conda-envs" folder and create conda environment "cocorv-env-GRCh37":
+```bash
+git clone https://github.com/stjudecab/CoCoRV_nextflow_conda.git
+cd CoCoRV_nextflow_conda/conda-envs
+micromamba create -f cocorv-env-GRCh37.yaml
+```
+It will create a conda environment with name "cocorv-env-GRCh37" with all necessary python packages, gnomAD packages, and R packages. 
+Activate the "cocorv-env-GRCh37" environment and install custom CoCoRV R package in there.
+```bash
+micromamba activate cocorv-env-GRCh37
 cd /home/stithi/CoCoRV_pipeline_bitbucket/cocorv
 Rscript build.R
 micromamba deactivate
@@ -56,7 +72,7 @@ It will print the help message.
 The CoCoRV nextflow pipeline script, nextflow configuration file, and example run configuration files are provided in this repository.
 
 * *CoCoRVPipeline.nf*: main nextflow script for CoCoRV pipeline.
-* *nextflow.config*: contains default configuration for running CoCoRV pipeline, please update the "process.conda" parameter to specify your home directory's micromamba environment folder containing "cocorv-env-GRCh38" environment.
+* *nextflow.config*: contains default configuration for running CoCoRV pipeline, please update the "process.conda" parameter to specify your home directory's micromamba environment folder containing "cocorv-env-GRCh38" or "cocorv-env-GRCh37" environment.
 * *example folder*: contains run specific configuration files. You need to create a configuration file like "input.1KG.GRCh38.txt" given in here and update it with case VCF file path and output folder path for your run.
 * *conda-envs folder*: contains YAML files for creating conda environment.
 
@@ -66,6 +82,13 @@ To run the CoCoRV pipeline for GRCh38 using gnomAD v3 whole genome data, an exam
 To run "testGRCh38_1KG_conda.sh" script, update the "inputConfig" parameter to specify the configuration file path in your workspace. Also update the output folder parameter "outputRoot" in the config file "example/input.1KG.GRCh38.txt" to specify a different output folder location. Also update "process.conda" parameter in "nextflow.config" file's *conda_GRCh38* profile section to specify your home directory's micromamba environment folder containing "cocorv-env-GRCh38" environment (usually YOUR_HOME_DIRECTORY/micromamba/envs/cocorv-env-GRCh38).
 
 To run CoCoRV using different inputs, you need to update "example/input.1KG.GRCh38.txt" and change case file specific parameters which are "caseBed", "caseVCFPrefix", "caseVCFSuffix", "caseSample" and output folder parameter which is "outputRoot".
+
+#### GRCh37 using gnmoAD v2 exome data ####
+To run the CoCoRV pipeline for GRCh37 using gnomAD v2 exome data, an example run script "testGRCh37_1KG_conda.sh" is given. This test script uses the input configuration file given in here: "example/input.1KG.GRCh37.txt". Here we used 25 samples from 1000 Genomes Project whole exome data (build GRCh37) as case data.
+
+To run "testGRCh37_1KG_conda.sh" script, update the "inputConfig" parameter to specify the configuration file path in your workspace. Also update the output folder parameter "outputRoot" in the config file "example/input.1KG.GRCh37.txt" to specify a different output folder location. Also update "process.conda" parameter in "nextflow.config" file's *conda_GRCh37* profile section to specify your home directory's micromamba environment folder containing "cocorv-env-GRCh37" environment (usually YOUR_HOME_DIRECTORY/micromamba/envs/cocorv-env-GRCh37).
+
+To run CoCoRV using different inputs, you need to update "example/input.1KG.GRCh37.txt" and change case file specific parameters which are "caseBed", "caseVCFPrefix", "caseVCFSuffix", "caseSample" and output folder parameter which is "outputRoot".
 
 ### Contributors ###
 * Saima Sultana Tithi

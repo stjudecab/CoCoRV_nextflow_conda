@@ -1,0 +1,3 @@
+bsub -P ALS -J run-coverage -q priority -R "rusage[mem=8000]" -oo coverage.out -eo coverage.err "sh test-run-cluster.sh"
+
+bsub -P ALS -J run-coverage -q priority -R "rusage[mem=8000]" -oo coverage-conda.out -eo coverage-conda.err "sh test-run-conda.sh"
